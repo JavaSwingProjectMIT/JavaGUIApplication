@@ -1,4 +1,4 @@
 
 public class Novo {
-	//komentar 22
+	protected double a;
 }
