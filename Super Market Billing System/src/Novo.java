@@ -1,4 +1,4 @@
 
 public class Novo {
-	//koment
+	//komentar
 }
