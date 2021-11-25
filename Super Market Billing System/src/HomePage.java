@@ -1,4 +1,4 @@
-import java.awt.Font;
+/*import java.awt.Font;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -21,3 +21,4 @@ public class HomePage {
 		home.setVisible(true);
 	}
 }
+*/

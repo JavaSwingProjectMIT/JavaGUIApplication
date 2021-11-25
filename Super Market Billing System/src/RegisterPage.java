@@ -1,4 +1,4 @@
-import java.awt.Font;
+/*import java.awt.Font;
 
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -109,4 +109,4 @@ public class RegisterPage {
 		rdbtnNewRadioButton_1.setBounds(318, 171, 109, 23);
 		home.getContentPane().add(rdbtnNewRadioButton_1);
 	}
-}
+}*/
