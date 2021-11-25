@@ -21,9 +21,9 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 public class Login implements ActionListener,MouseListener{
 	//Initialing DB connection to null
-	private Connection con = null;
-	private Statement stmt = null;
-	private ResultSet rs = null;
+//	private Connection con = null;
+//	private Statement stmt = null;
+//	private ResultSet rs = null;
 	//Creating needed object for frame
 	JFrame login = new JFrame();
     JButton btnLogin = new JButton("Login");	
@@ -105,29 +105,29 @@ public class Login implements ActionListener,MouseListener{
 	//Manage login click
 	public void actionPerformed(ActionEvent e) {
 		
-		if(e.getSource() == btnLogin) {
-			try {
-				con = ConnectionManager.getConnection();
-				stmt = con.createStatement();
-				String sql = "SELECT * FROM `user` WHERE username = "+ "'"+textFieldUsername.getText()+"'"+" AND password="+"'"+passwordField.getText().toString()+"'"; ;
-				rs = stmt.executeQuery(sql);
-				
-				if(rs.next()) {
-					login.dispose();
-					HomePage homePage = new HomePage();
-				} else { 
-				
-					 JOptionPane.showMessageDialog(login,"Wrong Password And Username!");  
-				}
-				con.close();
-				
-			} catch (SQLException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-		
-			
-		}
+//		if(e.getSource() == btnLogin) {
+//			try {
+//				con = ConnectionManager.getConnection();
+//				stmt = con.createStatement();
+//				String sql = "SELECT * FROM `user` WHERE username = "+ "'"+textFieldUsername.getText()+"'"+" AND password="+"'"+passwordField.getText().toString()+"'"; ;
+//				rs = stmt.executeQuery(sql);
+//				
+//				if(rs.next()) {
+//					login.dispose();
+//					HomePage homePage = new HomePage();
+//				} else { 
+//				
+//					 JOptionPane.showMessageDialog(login,"Wrong Password And Username!");  
+//				}
+//				con.close();
+//				
+//			} catch (SQLException e1) {
+//				// TODO Auto-generated catch block
+//				e1.printStackTrace();
+//			}
+//		
+//			
+//		}
 	}
 	//Manage register clcik
 	@Override
