@@ -1,4 +1,4 @@
-/*import java.sql.*;
+import java.sql.*;
 public class Main {
 
 	public static void main(String[] args) throws SQLException {
@@ -8,4 +8,3 @@ public class Main {
 		}
 
 }
-*/
