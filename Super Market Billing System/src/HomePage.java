@@ -6,30 +6,91 @@ import java.sql.SQLException;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 public class HomePage {
 
-	HomePagePanel panelHome;
+	HomePagePanel homePanel;
 	LeftSideMenu panelLeftSideMenu;
 	TopBaner topBaner;
 	Login login;
+	UsersOverviewPanel userOverviewPanel;
+
+	public void setActivePanel(JPanel panel, JPanel[] panels) {
+
+		for (int i = 0; i < panels.length; i++) {
+			if (panel == panels[i]) {
+
+				panel.setVisible(true);
+			} else {
+				panels[i].setVisible(false);
+
+			}
+		}
+
+	}
+
+	public void setLeftSideMenuTabsHover(JPanel[] tabs) {
+		for (int i = 0; i < tabs.length; i++) {
+			final int j = i;
+			tabs[i].addMouseListener(new MouseListener() {
+
+				@Override
+				public void mouseClicked(MouseEvent arg0) {
+
+				}
+
+				@Override
+				public void mouseEntered(MouseEvent arg0) {
+					// TODO Auto-generated method stub
+					tabs[j].setBackground(Colors.aquaMarine);
+
+				}
+
+				@Override
+				public void mouseExited(MouseEvent arg0) {
+					// TODO Auto-generated method stub
+					tabs[j].setBackground(Colors.teal);
+				}
+
+				@Override
+				public void mousePressed(MouseEvent arg0) {
+					// TODO Auto-generated method stub
+
+				}
+
+				@Override
+				public void mouseReleased(MouseEvent arg0) {
+					// TODO Auto-generated method stub
+					tabs[j].setBackground(Colors.aquaMarine);
+				}
+			});
+
+		}
+
+	}
 
 	public HomePage() {
 
 		JFrame homepage = new JFrame();
 		panelLeftSideMenu = new LeftSideMenu();
 		topBaner = new TopBaner();
-		panelHome = new HomePagePanel();
-
+		homePanel = new HomePagePanel();
+		userOverviewPanel = new UsersOverviewPanel();
+		// Panels array and leftSideTabs elements order is very important
+		JPanel[] panels = { homePanel, userOverviewPanel };
+		JPanel[] leftSideTabs = { LeftSideMenu.panelHome, LeftSideMenu.panelUserOverview,
+				LeftSideMenu.panelAdditionalSettings, LeftSideMenu.panelMakeSale, LeftSideMenu.panelManualSale,
+				LeftSideMenu.panelManageProducts, LeftSideMenu.panelSettings, LeftSideMenu.panelSalesOverview };
 		homepage.setBounds(0, 0, 1200, 700);
 		homepage.setVisible(true);
 		homepage.setLayout(null);
 		homepage.add(panelLeftSideMenu);
 		homepage.add(topBaner);
-		homepage.add(panelHome);
-//		homepage.add(panelUserOverview);
-		
-		//Get back to login page on logout click
+		homepage.add(homePanel);
+		homepage.add(userOverviewPanel);
+
+		// Get back to login page on logout click
 		TopBaner.lblLogoutIcon.addMouseListener(new MouseListener() {
 
 			@Override
@@ -41,50 +102,18 @@ public class HomePage {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				
+
 			}
 
 			@Override
 			public void mouseEntered(MouseEvent arg0) {
 				// TODO Auto-generated method stub
-				
+
 			}
 
 			@Override
 			public void mouseExited(MouseEvent arg0) {
 				// TODO Auto-generated method stub
-				
-			}
-
-			@Override
-			public void mousePressed(MouseEvent arg0) {
-				// TODO Auto-generated method stub
-				
-			}
-
-			@Override
-			public void mouseReleased(MouseEvent arg0) {
-				// TODO Auto-generated method stub
-				
-			}
-			
-		});
-		LeftSideMenu.panelHome.addMouseListener(new MouseListener() {
-
-			@Override
-			public void mouseClicked(MouseEvent arg0) {
-
-			}
-
-			@Override
-			public void mouseEntered(MouseEvent e) {
-				LeftSideMenu.panelHome.setBackground(Colors.aquaMarine);
-
-			}
-
-			@Override
-			public void mouseExited(MouseEvent e) {
-				LeftSideMenu.panelHome.setBackground(Colors.teal);
 
 			}
 
@@ -101,238 +130,45 @@ public class HomePage {
 			}
 
 		});
-		// User overview button listener
-		LeftSideMenu.panelUserOverview.addMouseListener(new MouseListener() {
+		setLeftSideMenuTabsHover(leftSideTabs);
+		//Matching which tab is clicked and setting corresponding panel to active
+		for (int i = 0; i < leftSideTabs.length; i++) {
+			final int j = i;
+			leftSideTabs[j].addMouseListener(new MouseListener() {
 
-			@Override
-			public void mouseClicked(MouseEvent arg0) {
+				@Override
+				public void mouseClicked(MouseEvent e) {
+					// TODO Auto-generated method stub
+					for (int k = 0; k < panels.length; k++)
+						setActivePanel(panels[j], panels);
+				}
 
-			}
+				@Override
+				public void mouseEntered(MouseEvent arg0) {
+					// TODO Auto-generated method stub
 
-			@Override
-			public void mouseEntered(MouseEvent e) {
-				LeftSideMenu.panelUserOverview.setBackground(Colors.aquaMarine);
+				}
 
-			}
+				@Override
+				public void mouseExited(MouseEvent arg0) {
+					// TODO Auto-generated method stub
 
-			@Override
-			public void mouseExited(MouseEvent e) {
-				LeftSideMenu.panelUserOverview.setBackground(Colors.teal);
+				}
 
-			}
+				@Override
+				public void mousePressed(MouseEvent arg0) {
+					// TODO Auto-generated method stub
 
-			@Override
-			public void mousePressed(MouseEvent arg0) {
-				// TODO Auto-generated method stub
+				}
 
-			}
+				@Override
+				public void mouseReleased(MouseEvent arg0) {
+					// TODO Auto-generated method stub
 
-			@Override
-			public void mouseReleased(MouseEvent arg0) {
-				// TODO Auto-generated method stub
+				}
 
-			}
-
-		});
-		// panelManageProducts listener
-		LeftSideMenu.panelManageProducts.addMouseListener(new MouseListener() {
-
-			@Override
-			public void mouseClicked(MouseEvent arg0) {
-
-			}
-
-			@Override
-			public void mouseEntered(MouseEvent e) {
-				LeftSideMenu.panelManageProducts.setBackground(Colors.aquaMarine);
-
-			}
-
-			@Override
-			public void mouseExited(MouseEvent e) {
-				LeftSideMenu.panelManageProducts.setBackground(Colors.teal);
-
-			}
-
-			@Override
-			public void mousePressed(MouseEvent arg0) {
-				// TODO Auto-generated method stub
-
-			}
-
-			@Override
-			public void mouseReleased(MouseEvent arg0) {
-				// TODO Auto-generated method stub
-
-			}
-
-		});
-		// panelMakeSale listener
-		LeftSideMenu.panelMakeSale.addMouseListener(new MouseListener() {
-
-			@Override
-			public void mouseClicked(MouseEvent arg0) {
-
-			}
-
-			@Override
-			public void mouseEntered(MouseEvent e) {
-				LeftSideMenu.panelMakeSale.setBackground(Colors.aquaMarine);
-
-			}
-
-			@Override
-			public void mouseExited(MouseEvent e) {
-				LeftSideMenu.panelMakeSale.setBackground(Colors.teal);
-
-			}
-
-			@Override
-			public void mousePressed(MouseEvent arg0) {
-				// TODO Auto-generated method stub
-
-			}
-
-			@Override
-			public void mouseReleased(MouseEvent arg0) {
-				// TODO Auto-generated method stub
-
-			}
-
-		});
-		// Panel Manual Sale listener
-		LeftSideMenu.panelManualSale.addMouseListener(new MouseListener() {
-
-			@Override
-			public void mouseClicked(MouseEvent arg0) {
-
-			}
-
-			@Override
-			public void mouseEntered(MouseEvent e) {
-				LeftSideMenu.panelManualSale.setBackground(Colors.aquaMarine);
-
-			}
-
-			@Override
-			public void mouseExited(MouseEvent e) {
-				LeftSideMenu.panelManualSale.setBackground(Colors.teal);
-
-			}
-
-			@Override
-			public void mousePressed(MouseEvent arg0) {
-				// TODO Auto-generated method stub
-
-			}
-
-			@Override
-			public void mouseReleased(MouseEvent arg0) {
-				// TODO Auto-generated method stub
-
-			}
-
-		});
-		// Panel Sales Overview Listener
-		LeftSideMenu.panelSalesOverview.addMouseListener(new MouseListener() {
-
-			@Override
-			public void mouseClicked(MouseEvent arg0) {
-
-			}
-
-			@Override
-			public void mouseEntered(MouseEvent e) {
-				LeftSideMenu.panelSalesOverview.setBackground(Colors.aquaMarine);
-
-			}
-
-			@Override
-			public void mouseExited(MouseEvent e) {
-				LeftSideMenu.panelSalesOverview.setBackground(Colors.teal);
-
-			}
-
-			@Override
-			public void mousePressed(MouseEvent arg0) {
-				// TODO Auto-generated method stub
-
-			}
-
-			@Override
-			public void mouseReleased(MouseEvent arg0) {
-				// TODO Auto-generated method stub
-
-			}
-
-		});
-		// Panel Settings Listener
-		LeftSideMenu.panelSettings.addMouseListener(new MouseListener() {
-
-			@Override
-			public void mouseClicked(MouseEvent arg0) {
-
-			}
-
-			@Override
-			public void mouseEntered(MouseEvent e) {
-				LeftSideMenu.panelSettings.setBackground(Colors.aquaMarine);
-
-			}
-
-			@Override
-			public void mouseExited(MouseEvent e) {
-				LeftSideMenu.panelSettings.setBackground(Colors.teal);
-
-			}
-
-			@Override
-			public void mousePressed(MouseEvent arg0) {
-				// TODO Auto-generated method stub
-
-			}
-
-			@Override
-			public void mouseReleased(MouseEvent arg0) {
-				// TODO Auto-generated method stub
-
-			}
-
-		});
-		// Panel Additional Settings Listener
-		LeftSideMenu.panelAdditionalSettings.addMouseListener(new MouseListener() {
-
-			@Override
-			public void mouseClicked(MouseEvent arg0) {
-
-			}
-
-			@Override
-			public void mouseEntered(MouseEvent e) {
-				LeftSideMenu.panelAdditionalSettings.setBackground(Colors.aquaMarine);
-
-			}
-
-			@Override
-			public void mouseExited(MouseEvent e) {
-				LeftSideMenu.panelAdditionalSettings.setBackground(Colors.teal);
-
-			}
-
-			@Override
-			public void mousePressed(MouseEvent arg0) {
-				// TODO Auto-generated method stub
-
-			}
-
-			@Override
-			public void mouseReleased(MouseEvent arg0) {
-				// TODO Auto-generated method stub
-
-			}
-
-		});
-
+			});
+		}
 	}
 
 }

@@ -26,7 +26,6 @@ public class HomePagePanel extends JPanel {
 		Statement stmt = null;
 		ResultSet rs = null;
 		String sql = "";
-		setVisible(true);
 		setLayout(null);
 		setBounds(300,0,900,700);
 		setBackground(Color.WHITE);
