@@ -23,7 +23,7 @@ public class TopBaner extends JPanel {
 
 	Timer updateTimer;
 	public static JLabel lblLogoutIcon = new JLabel("");
-
+	public static JLabel lblBanerTitle = new JLabel("Home Page");
 	/**
 	 * Create the panel.
 	 */
@@ -110,12 +110,12 @@ public class TopBaner extends JPanel {
 		
 		add(lblLogoutIcon);
 		
-		JLabel lblHomePage = new JLabel("Home Page");
-		lblHomePage.setFont(new Font(Colors.font, Font.BOLD, 20));
-		lblHomePage.setHorizontalAlignment(SwingConstants.CENTER);
-		lblHomePage.setForeground(Color.WHITE);
-		lblHomePage.setBounds(25, 0, 151, 78);
-		add(lblHomePage);
+		
+		lblBanerTitle.setFont(new Font(Colors.font, Font.BOLD, 20));
+		lblBanerTitle.setHorizontalAlignment(SwingConstants.CENTER);
+		lblBanerTitle.setForeground(Color.WHITE);
+		lblBanerTitle.setBounds(25, 0, 214, 78);
+		add(lblBanerTitle);
 
 		// Clock and Date
 		updateTimer = new Timer(100, new ActionListener() {

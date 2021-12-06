@@ -6,6 +6,8 @@ import java.sql.Statement;
 
 public class UsersOverviewPanel extends JPanel {
 
+	public static String title="Users Overview";
+
 	/**
 	 * Create the panel.
 	 */

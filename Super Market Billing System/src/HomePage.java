@@ -20,8 +20,8 @@ public class HomePage {
 
 		for (int i = 0; i < panels.length; i++) {
 			if (panel == panels[i]) {
-
 				panel.setVisible(true);
+				
 			} else {
 				panels[i].setVisible(false);
 
@@ -77,7 +77,8 @@ public class HomePage {
 		topBaner = new TopBaner();
 		homePanel = new HomePagePanel();
 		userOverviewPanel = new UsersOverviewPanel();
-		// Panels array and leftSideTabs elements order is very important
+		// Arrays elements order is very important!!!!!!!
+		String [] titles = {HomePagePanel.title,UsersOverviewPanel.title};
 		JPanel[] panels = { homePanel, userOverviewPanel };
 		JPanel[] leftSideTabs = { LeftSideMenu.panelHome, LeftSideMenu.panelUserOverview,
 				LeftSideMenu.panelAdditionalSettings, LeftSideMenu.panelMakeSale, LeftSideMenu.panelManualSale,
@@ -96,9 +97,10 @@ public class HomePage {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				homepage.dispose();
+				TopBaner.lblBanerTitle.setText("Home Page");
 				try {
 					login = new Login();
-				} catch (SQLException e) {
+				}  catch (SQLException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
@@ -141,6 +143,8 @@ public class HomePage {
 					// TODO Auto-generated method stub
 					for (int k = 0; k < panels.length; k++)
 						setActivePanel(panels[j], panels);
+						TopBaner.lblBanerTitle.setText(titles[j]);
+						
 				}
 
 				@Override

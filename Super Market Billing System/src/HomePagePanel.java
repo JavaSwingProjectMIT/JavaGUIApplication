@@ -18,6 +18,7 @@ public class HomePagePanel extends JPanel {
 	JButton changePanel = new JButton();
 	UsersOverviewPanel overviewUser;
 	LeftSideMenu leftSideMenu;
+	public static String title = "Home Page";
 	/**
 	 * Create the panel.
 	 */

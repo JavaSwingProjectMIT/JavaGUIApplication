@@ -19,6 +19,7 @@ public class LeftSideMenu extends JPanel {
 	public static JPanel panelAdditionalSettings = new JPanel();
 	public static JPanel panelHome = new JPanel();
 	private final JLabel lblLogo = new JLabel("The Best Super Market");
+	public static JLabel lblHomePage;
 
 	/**
 	 * Create the panel.
@@ -66,8 +67,9 @@ public class LeftSideMenu extends JPanel {
 
 		// Home tab panel
 		editPanel(panelHome, Colors.teal, bounds = new int[] { 0, 100, 300, 60 });
-		panelHome.add(createJLabel("lblHomePage", bounds = new int[] { 120, 17, 147, 20 }, "Home Page", Colors.font,
-				Colors.grey, ""));
+		JLabel lblHomePage = createJLabel("lblHomePage", bounds = new int[] { 120, 17, 147, 20 }, "Home Page", Colors.font,
+				Colors.grey, "");
+		panelHome.add(lblHomePage);
 		panelHome.add(
 				createJLabel("lblHomePageIcon", bounds = new int[] { 34, 12, 32, 32 }, "", Colors.font, Colors.grey,
 						"images/homePageIcon.png"));
