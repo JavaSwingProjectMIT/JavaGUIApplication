@@ -1,23 +1,318 @@
-import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 
 public class HomePage {
+	
+	HomePagePanel panelHome ;
+	LeftSideMenu panelLeftSideMenu;
+	
+	TopBaner topBaner;
+	
+	public HomePage() {
+		
+		
+		JFrame homepage = new JFrame();
+		panelLeftSideMenu = new LeftSideMenu();
+		topBaner=new TopBaner();
+		panelHome = new HomePagePanel();
+		
+		homepage.setBounds(0,0,1200,700);
+		homepage.setVisible(true);
+		homepage.setLayout(null);
+		homepage.add(panelLeftSideMenu);
+		homepage.add(topBaner);
+		homepage.add(panelHome);
+//		homepage.add(panelUserOverview);
+	
+		
+		LeftSideMenu.panelHome.addMouseListener(new MouseListener() {
 
-	JFrame home = new JFrame();
-	JLabel welcomeLabel = new JLabel("WELCOME");
-	
-	
-	HomePage(){
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				
+				
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				LeftSideMenu.panelHome.setBackground(Colors.aquaMarine);
+			
+				
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				LeftSideMenu.panelHome.setBackground(Colors.teal);
+				
+			}
+
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+		});
+		//User overview button listener
+		LeftSideMenu.panelUserOverview.addMouseListener(new MouseListener() {
+
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				
+				
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				LeftSideMenu.panelUserOverview.setBackground(Colors.aquaMarine);
+			
+				
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				LeftSideMenu.panelUserOverview.setBackground(Colors.teal);
+				
+			}
+
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+		});
+		//panelManageProducts listener
+		LeftSideMenu.panelManageProducts.addMouseListener(new MouseListener() {
+
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				
+				
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				LeftSideMenu.panelManageProducts.setBackground(Colors.aquaMarine);
+			
+				
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				LeftSideMenu.panelManageProducts.setBackground(Colors.teal);
+				
+			}
+
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+		});
+		//panelMakeSale listener
+		LeftSideMenu.panelMakeSale.addMouseListener(new MouseListener() {
+
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				
+				
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				LeftSideMenu.panelMakeSale.setBackground(Colors.aquaMarine);
+			
+				
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				LeftSideMenu.panelMakeSale.setBackground(Colors.teal);
+				
+			}
+
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+		});
+		//Panel Manual Sale listener
+		LeftSideMenu.panelManualSale.addMouseListener(new MouseListener() {
+
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				
+				
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				LeftSideMenu.panelManualSale .setBackground(Colors.aquaMarine);
+			
+				
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				LeftSideMenu.panelManualSale .setBackground(Colors.teal);
+				
+			}
+
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+		});
+		//Panel Sales Overview Listener
+		LeftSideMenu.panelSalesOverview.addMouseListener(new MouseListener() {
+
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				
+				
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				LeftSideMenu.panelSalesOverview.setBackground(Colors.aquaMarine);
+			
+				
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				LeftSideMenu.panelSalesOverview.setBackground(Colors.teal);
+				
+			}
+
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+		});
+		//Panel Settings Listener
+		LeftSideMenu.panelSettings.addMouseListener(new MouseListener() {
+
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				
+				
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				LeftSideMenu.panelSettings.setBackground(Colors.aquaMarine);
+			
+				
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				LeftSideMenu.panelSettings.setBackground(Colors.teal);
+				
+			}
+
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+		});
+		//Panel Additional Settings Listener
+		LeftSideMenu.panelAdditionalSettings.addMouseListener(new MouseListener() {
+
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				
+				
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				LeftSideMenu.panelAdditionalSettings.setBackground(Colors.aquaMarine);
+			
+				
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				LeftSideMenu.panelAdditionalSettings.setBackground(Colors.teal);
+				
+			}
+
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+		});
 		
-		welcomeLabel.setBounds(0,0,100,50);
-		welcomeLabel.setFont(new Font(null,Font.PLAIN,25));
-		
-		home.add(welcomeLabel);
-		home.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		home.setSize(500,500);
-		home.setLayout(null);
-		home.setVisible(true);
+
 	}
+
+	
+
 }
