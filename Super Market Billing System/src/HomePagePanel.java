@@ -3,6 +3,11 @@ import javax.swing.JPanel;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
 import javax.swing.JTextPane;
 import javax.swing.JLabel;
 import java.awt.Font;
@@ -17,6 +22,10 @@ public class HomePagePanel extends JPanel {
 	 * Create the panel.
 	 */
 	public HomePagePanel() {
+		Connection con = null;
+		Statement stmt = null;
+		ResultSet rs = null;
+		String sql = "";
 		setVisible(true);
 		setLayout(null);
 		setBounds(300,0,900,700);
@@ -29,7 +38,7 @@ public class HomePagePanel extends JPanel {
 		lblNewLabel.setBounds(300, 300, 238, 40);
 		add(lblNewLabel);
 		
-		JLabel lblNikola = new JLabel("Nikola");
+		JLabel lblNikola = new JLabel("");
 		lblNikola.setFont(new Font("Comic Sans MS", Font.BOLD, 33));
 		lblNikola.setForeground(Colors.darkPurple);
 		lblNikola.setBounds(550, 300, 166, 40);
@@ -55,7 +64,29 @@ public class HomePagePanel extends JPanel {
 		lblLoggedInAs.setForeground(Colors.darkPurple);
 		add(lblLoggedInAs);
 		
-		JLabel lblLoggedAsName = new JLabel("Nikola");
+		JLabel lblLoggedAsName = new JLabel("");
+		//Settings label name to name which depends of user logged
+		try {
+			con = ConnectionManager.getConnection();
+			stmt = con.createStatement();
+			sql = "SELECT first_name FROM `user` WHERE username = '" + Login.textFieldUsername.getText() + "'";
+			rs=stmt.executeQuery(sql);
+			if(rs.next()) {
+				String nameUserInputed = rs.getString(1);
+				String firstLatterToUpper = nameUserInputed.substring(0,1).toUpperCase()+nameUserInputed.substring(1).toLowerCase();
+				lblLoggedAsName.setText(firstLatterToUpper);
+				lblNikola.setText(firstLatterToUpper);
+			}else {
+				
+				System.out.println("Could not find user");
+			}
+			stmt.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
 		lblLoggedAsName.setFont(new Font("Comic Sans MS", Font.BOLD, 14));
 		lblLoggedAsName.setBounds(142, 12, 79, 21);
 		lblLoggedAsName.setForeground(Colors.darkPurple);

@@ -27,8 +27,8 @@ public class Login  implements ActionListener, MouseListener {
 	JFrame login = new JFrame();
 	JButton btnLogin = new JButton("Login");
 	JLabel label = new JLabel();
-	JLabel lblusername = new JLabel("Username");
-	JTextField textFieldUsername = new RoundJTextField(15);
+    JLabel lblusername = new JLabel("Username");
+	public static JTextField textFieldUsername = new RoundJTextField(15);
 	JLabel lblPassword = new JLabel("Password");
 	JPasswordField passwordField = new RoundJPasswordField(15);
 	JCheckBox chckbxNewCheckBox = new JCheckBox("Rememmber me");

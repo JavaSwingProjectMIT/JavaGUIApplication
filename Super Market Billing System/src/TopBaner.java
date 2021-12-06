@@ -3,6 +3,8 @@ import javax.swing.Timer;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -20,6 +22,7 @@ import java.awt.Font;
 public class TopBaner extends JPanel {
 
 	Timer updateTimer;
+	public static JLabel lblLogoutIcon = new JLabel("");
 
 	/**
 	 * Create the panel.
@@ -101,10 +104,11 @@ public class TopBaner extends JPanel {
 		lblLogout.setFont(new Font("Comic Sans MS", Font.BOLD, 14));
 		add(lblLogout);
 		
-		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon("/home/nmarkovic/git/JavaGUIApplication/Super Market Billing System/images/logoutIcon.png"));
-		lblNewLabel.setBounds(804, 23, 32, 32);
-		add(lblNewLabel);
+		
+		lblLogoutIcon.setIcon(new ImageIcon("images/logoutIcon.png"));
+		lblLogoutIcon.setBounds(804, 23, 32, 32);
+		
+		add(lblLogoutIcon);
 		
 		JLabel lblHomePage = new JLabel("Home Page");
 		lblHomePage.setFont(new Font(Colors.font, Font.BOLD, 20));
