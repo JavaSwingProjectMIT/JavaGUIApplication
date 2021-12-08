@@ -61,7 +61,7 @@ public class RegisterPage implements MouseListener {
 		} catch (NoSuchAlgorithmException e) {
 			e.printStackTrace();
 		}
-		
+
 		return hashPassword;
 	}
 
@@ -94,7 +94,7 @@ public class RegisterPage implements MouseListener {
 	JRadioButton famale = new JRadioButton("famale");
 
 	RegisterPage() throws IOException {
-		
+
 		confirmPasswordTextField.setBounds(56, 313, 174, 20);
 		confirmPasswordTextField.setColumns(10);
 		emailTextField.setToolTipText("");
@@ -108,7 +108,7 @@ public class RegisterPage implements MouseListener {
 		welcomeLabel.setForeground(Colors.white);
 
 		home.getContentPane().add(welcomeLabel);
-		
+
 		home.setResizable(false);
 		home.getContentPane().setBackground(Colors.teal);
 		home.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -246,6 +246,7 @@ public class RegisterPage implements MouseListener {
 			String email = emailTextField.getText();
 			String address = addressTextField.getText();
 			String hashedPassword = hashPassword(_password);
+			String city = cityTextField.getText();
 			Boolean usernameExsist = false;
 			// User input validation
 
@@ -275,7 +276,7 @@ public class RegisterPage implements MouseListener {
 			}
 
 			if (firstName.equals("") || lastName.equals("") || _password.equals("") || confirmPassword.equals("")
-					|| gender.equals("") || address.equals("") || email.equals("")) {
+					|| gender.equals("") || address.equals("") || email.equals("") || city.equals("")) {
 				JOptionPane.showMessageDialog(home, "Please fill all fields!");
 
 			} else if (!(patternMatches(email, "^(.+)@(\\S+)$"))) {
@@ -295,9 +296,9 @@ public class RegisterPage implements MouseListener {
 				try {
 					con = ConnectionManager.getConnection();
 					stmt = con.createStatement();
-					sql = "INSERT INTO `user` (`user_id`, `first_name`, `last_name`, `username`, `password`, `gender`, `address`) VALUES (NULL, '"
+					sql = "INSERT INTO `user` (`user_id`, `first_name`, `last_name`, `username`, `password`, `gender`, `address`,`city`) VALUES (NULL, '"
 							+ firstName + "', '" + lastName + "', '" + username + "', '" + hashedPassword + "','"
-							+ gender + "', '" + address + "');";
+							+ gender + "', '" + address + "','" + city + "');";
 					stmt.executeUpdate(sql);
 					stmt.close();
 					home.dispose();

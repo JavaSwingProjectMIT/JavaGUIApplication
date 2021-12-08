@@ -1,4 +1,5 @@
 import java.awt.Color;
+import java.awt.Font;
 
 public class Colors {
 	//bg
@@ -12,7 +13,8 @@ public class Colors {
 	//Succes buttons
 	public static Color aquaMarine = new Color(82, 171, 152);
 	public static Color darkPurple = new Color(59,42,94);
+	public static Color lightPurple = new Color (212, 199, 237);
 	
-	public static String font="Comic Sans MS";
+	public static String font ="Comic Sans MS";
 	
 }

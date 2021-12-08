@@ -10,6 +10,8 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.prefs.Preferences;
+
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -35,6 +37,8 @@ public class Login  implements ActionListener, MouseListener {
 	JLabel lblHaveNoAccount = new JLabel("Have no account? ");
 	JLabel lblNewLabel = new JLabel("Super Market Billing System");
 	JLabel lblRegister = new JLabel("Register");
+	public static String username =""; 
+
 
 	Login() throws SQLException {
 		//////////////////////////
@@ -114,6 +118,7 @@ public class Login  implements ActionListener, MouseListener {
 				con = ConnectionManager.getConnection();
 				stmt = con.createStatement();
 				String username = textFieldUsername.getText();
+				Login.username=username;
 				String password = passwordField.getText().toString();
 				String hashedCheck = RegisterPage.hashPassword(password);
 				String sql = "SELECT * FROM `user` WHERE username = " + "'" + textFieldUsername.getText() + "'"

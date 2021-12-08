@@ -19,6 +19,7 @@ public class HomePagePanel extends JPanel {
 	UsersOverviewPanel overviewUser;
 	LeftSideMenu leftSideMenu;
 	public static String title = "Home Page";
+	public static String username ="";
 	/**
 	 * Create the panel.
 	 */
@@ -38,11 +39,11 @@ public class HomePagePanel extends JPanel {
 		lblNewLabel.setBounds(300, 300, 238, 40);
 		add(lblNewLabel);
 		
-		JLabel lblNikola = new JLabel("");
-		lblNikola.setFont(new Font("Comic Sans MS", Font.BOLD, 33));
-		lblNikola.setForeground(Colors.darkPurple);
-		lblNikola.setBounds(550, 300, 166, 40);
-		add(lblNikola);
+		JLabel lblUsernameH1 = new JLabel("");
+		lblUsernameH1.setFont(new Font("Comic Sans MS", Font.BOLD, 33));
+		lblUsernameH1.setForeground(Colors.darkPurple);
+		lblUsernameH1.setBounds(550, 300, 166, 40);
+		add(lblUsernameH1);
 		
 		JLabel lblLetsMakeSome = new JLabel("Let's make some good sales");
 		lblLetsMakeSome.setHorizontalAlignment(SwingConstants.CENTER);
@@ -74,8 +75,9 @@ public class HomePagePanel extends JPanel {
 			if(rs.next()) {
 				String nameUserInputed = rs.getString(1);
 				String firstLatterToUpper = nameUserInputed.substring(0,1).toUpperCase()+nameUserInputed.substring(1).toLowerCase();
+				HomePagePanel.username= firstLatterToUpper;
 				lblLoggedAsName.setText(firstLatterToUpper);
-				lblNikola.setText(firstLatterToUpper);
+				lblUsernameH1.setText(firstLatterToUpper);
 			}else {
 				
 				System.out.println("Could not find user");
