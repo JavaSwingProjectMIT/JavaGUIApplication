@@ -1,20 +1,20 @@
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import java.awt.Color;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-
-import javax.swing.JTextPane;
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.ImageIcon;
 
 public class HomePagePanel extends JPanel {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	JButton changePanel = new JButton();
 	UsersOverviewPanel overviewUser;
 	LeftSideMenu leftSideMenu;

@@ -9,7 +9,7 @@ public class ConnectionManager {
     private static String password = "root1234";
     private static Connection con;
     private static String urlstring;
-
+//izmenjeno
     public static Connection getConnection() {
         try {
             Class.forName(driverName);

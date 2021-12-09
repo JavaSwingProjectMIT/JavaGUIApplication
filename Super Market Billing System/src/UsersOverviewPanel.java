@@ -226,7 +226,6 @@ public class UsersOverviewPanel extends JPanel {
 		JTableHeader th = table.getTableHeader();
 		th.setFont(new Font(Colors.font, Font.BOLD, 14));
 		th.setBackground(Colors.white);
-		/////
 		// Getting table rows and columns
 		table.setDefaultRenderer(Object.class, new DefaultTableCellRenderer() {
 			@Override

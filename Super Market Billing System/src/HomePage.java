@@ -15,13 +15,14 @@ public class HomePage {
 	TopBaner topBaner;
 	Login login;
 	UsersOverviewPanel userOverviewPanel;
+	ManageProductsPanel manageProductsPanel;
 
 	public void setActivePanel(JPanel panel, JPanel[] panels) {
 
 		for (int i = 0; i < panels.length; i++) {
 			if (panel == panels[i]) {
 				panel.setVisible(true);
-				
+
 			} else {
 				panels[i].setVisible(false);
 
@@ -77,12 +78,13 @@ public class HomePage {
 		topBaner = new TopBaner();
 		homePanel = new HomePagePanel();
 		userOverviewPanel = new UsersOverviewPanel();
+		manageProductsPanel=new ManageProductsPanel();
 		// Arrays elements order is very important!!!!!!!
-		String [] titles = {HomePagePanel.title,UsersOverviewPanel.title};
-		JPanel[] panels = { homePanel, userOverviewPanel };
+		String[] titles = { HomePagePanel.title, UsersOverviewPanel.title, ManageProductsPanel.title };
+		JPanel[] panels = { homePanel, userOverviewPanel, manageProductsPanel };
 		JPanel[] leftSideTabs = { LeftSideMenu.panelHome, LeftSideMenu.panelUserOverview,
-				LeftSideMenu.panelAdditionalSettings, LeftSideMenu.panelMakeSale, LeftSideMenu.panelManualSale,
-				LeftSideMenu.panelManageProducts, LeftSideMenu.panelSettings, LeftSideMenu.panelSalesOverview };
+				LeftSideMenu.panelManageProducts, LeftSideMenu.panelAdditionalSettings, LeftSideMenu.panelMakeSale,
+				LeftSideMenu.panelManualSale, LeftSideMenu.panelSettings, LeftSideMenu.panelSalesOverview };
 		homepage.setBounds(0, 0, 1200, 700);
 		homepage.setVisible(true);
 		homepage.setLayout(null);
@@ -90,6 +92,7 @@ public class HomePage {
 		homepage.add(topBaner);
 		homepage.add(homePanel);
 		homepage.add(userOverviewPanel);
+		homepage.add(manageProductsPanel);
 
 		// Get back to login page on logout click
 		TopBaner.lblLogoutIcon.addMouseListener(new MouseListener() {
@@ -100,7 +103,7 @@ public class HomePage {
 				TopBaner.lblBanerTitle.setText("Home Page");
 				try {
 					login = new Login();
-				}  catch (SQLException e) {
+				} catch (SQLException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
@@ -133,7 +136,7 @@ public class HomePage {
 
 		});
 		setLeftSideMenuTabsHover(leftSideTabs);
-		//Matching which tab is clicked and setting corresponding panel to active
+		// Matching which tab is clicked and setting corresponding panel to active
 		for (int i = 0; i < leftSideTabs.length; i++) {
 			final int j = i;
 			leftSideTabs[j].addMouseListener(new MouseListener() {
@@ -143,8 +146,8 @@ public class HomePage {
 					// TODO Auto-generated method stub
 					for (int k = 0; k < panels.length; k++)
 						setActivePanel(panels[j], panels);
-						TopBaner.lblBanerTitle.setText(titles[j]);
-						
+					TopBaner.lblBanerTitle.setText(titles[j]);
+
 				}
 
 				@Override
