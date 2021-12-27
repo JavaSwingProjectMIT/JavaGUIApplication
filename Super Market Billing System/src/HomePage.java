@@ -16,6 +16,11 @@ public class HomePage {
 	Login login;
 	UsersOverviewPanel userOverviewPanel;
 	ManageProductsPanel manageProductsPanel;
+	MakeSalePanel makeSalePanel;
+	ManualSalePanel manualSalePanel;
+	SalesOverviewPanel salesOverviewPanel;
+	SettingPanel settingPanel;
+	public static JFrame homepage;
 
 	public void setActivePanel(JPanel panel, JPanel[] panels) {
 
@@ -73,18 +78,24 @@ public class HomePage {
 
 	public HomePage() {
 
-		JFrame homepage = new JFrame();
+		HomePage.homepage = new JFrame();
 		panelLeftSideMenu = new LeftSideMenu();
 		topBaner = new TopBaner();
 		homePanel = new HomePagePanel();
 		userOverviewPanel = new UsersOverviewPanel();
-		manageProductsPanel=new ManageProductsPanel();
+		manageProductsPanel = new ManageProductsPanel();
+		makeSalePanel = new MakeSalePanel();
+		manualSalePanel = new ManualSalePanel();
+		salesOverviewPanel = new SalesOverviewPanel();
+		settingPanel = new SettingPanel();
 		// Arrays elements order is very important!!!!!!!
-		String[] titles = { HomePagePanel.title, UsersOverviewPanel.title, ManageProductsPanel.title };
-		JPanel[] panels = { homePanel, userOverviewPanel, manageProductsPanel };
+		String[] titles = { HomePagePanel.title, UsersOverviewPanel.title, ManageProductsPanel.title,
+				MakeSalePanel.title, ManualSalePanel.title, SalesOverviewPanel.title, SettingPanel.title };
+		JPanel[] panels = { homePanel, userOverviewPanel, manageProductsPanel, makeSalePanel, manualSalePanel,
+				salesOverviewPanel, settingPanel };
 		JPanel[] leftSideTabs = { LeftSideMenu.panelHome, LeftSideMenu.panelUserOverview,
-				LeftSideMenu.panelManageProducts, LeftSideMenu.panelAdditionalSettings, LeftSideMenu.panelMakeSale,
-				LeftSideMenu.panelManualSale, LeftSideMenu.panelSettings, LeftSideMenu.panelSalesOverview };
+				LeftSideMenu.panelManageProducts, LeftSideMenu.panelMakeSale, LeftSideMenu.panelManualSale,
+				LeftSideMenu.panelSalesOverview, LeftSideMenu.panelSettings, LeftSideMenu.panelAdditionalSettings, };
 		homepage.setBounds(0, 0, 1200, 700);
 		homepage.setVisible(true);
 		homepage.setLayout(null);
@@ -93,6 +104,10 @@ public class HomePage {
 		homepage.add(homePanel);
 		homepage.add(userOverviewPanel);
 		homepage.add(manageProductsPanel);
+		homepage.add(makeSalePanel);
+		homepage.add(manualSalePanel);
+		homepage.add(salesOverviewPanel);
+		homepage.add(settingPanel);
 
 		// Get back to login page on logout click
 		TopBaner.lblLogoutIcon.addMouseListener(new MouseListener() {

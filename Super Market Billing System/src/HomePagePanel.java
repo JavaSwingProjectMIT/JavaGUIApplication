@@ -23,7 +23,7 @@ public class HomePagePanel extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public HomePagePanel() {
+	public  HomePagePanel() {
 		Connection con = null;
 		Statement stmt = null;
 		ResultSet rs = null;
